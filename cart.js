@@ -69,9 +69,23 @@ function addToCart(){
         payPizza(){
 
             if(this.Total<=this.amount){
-                this.messageAmount="'Enjoy' your pizzas"
+                this.messageAmount="Enjoy your pizzas"
+                setTimeout(function(){
+                    this.messageAmount=""
+                    this.smallPizzaQTY=0
+                    this.mediumPizzaQTY=0
+                    this.largePizzaQTY=0
+                    this.addSmallPizza=0
+                    this.addMediumPizza=0
+                    this.addLargePizza=0
+                    this.Total=0
+                    this.amount=""
+                }, 3000)
             }else{
                 this.messageAmount="Sorry - that is not enough money!"
+                setTimeout(function(){
+                    this.messageAmount=""
+                }, 3000)
             }
         },
 
