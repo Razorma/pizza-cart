@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Perfect Pizza</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="cart.js" defer></script>
+    <script src="cart.DOM.js" defer></script>
+    <script src="https://unpkg.com/alpinejs" defer></script>
+  </head>
+  <body x-data="{smallbought:false,mediumbought:false,largebought:false,anyBought:false}">
+    <div x-data="AddToCart" >
+    <h1>Perfect Pizza</h1>
+    <div class="cart" x-show="anyBought">
+        <h1>Shopping Cart</h1>
+        <div class="options" >
+            <div class="select" id="Small" x-show="smallbought" x-cloak><p>Small <span class="highlight" x-text="smallPizzaQTY"></span></p> <p class="plus-minus"><span class="plus" @click="addSmall">+</span>  <span class="minus"x-on:click="if(parseFloat(addSmallPizza.toFixed(2))===48.99)smallbought=false;if(parseFloat(Total.toFixed(2))===48.99)anyBought=false" @click="decreaseSmall">-</span></p> <p>R<span x-text="addSmallPizza.toFixed(2)">48.99</span></p></div>
+            <div class="select" id="Medium" x-show="mediumbought" x-cloak><p>Medium <span class="highlight" x-text="mediumPizzaQTY"></span></p> <p class="plus-minus"><span class="plus" @click="addMedium">+</span>  <span class="minus"x-on:click="if(parseFloat(addMediumPizza.toFixed(2))===78.99)mediumbought=false;if(parseFloat(Total.toFixed(2))===78.99)anyBought=false" @click="decreaseMedium" >-</span></p> <p>R<span x-text="addMediumPizza.toFixed(2)">78.99</span></p></div>
+            <div class="select" id="Large" x-show="largebought" x-cloak><p>Large <span class="highlight" x-text="largePizzaQTY"></span></p> <p class="plus-minus"><span class="plus" @click="addLarge">+</span>  <span class="minus"x-on:click="if(parseFloat(addLargePizza.toFixed(2))===158.99)largebought=false;if(parseFloat(Total.toFixed(2))===158.99)anyBought=false" @click="decreaseLarge">-</span></p> <p>R<span x-text="addLargePizza.toFixed(2)">158.99</span></p></div>
+            <div class="selectotal"  x-show="anyBought" x-cloak><p>Total Cost</p> <p>R<span x-text="Total.toFixed(2)">0.00</span></p></div>
+        </div>
+        <h2 class="message" x-text="messageAmount"></h2>
+        <button type="submit" class="checkout">Checkout</button>
+        <div class="payment"><p>Payment Amount</p> <input x-model="amount" type="number" name="" id=""></div>
+        <button type="submit" class="pay" @click="payPizza">Pay</button>
+    </div>
+    <div class="container" >
+      <div class="pizza Small" id="pizza-boxes" >
+        <div class="icon">
+          <h2>Small Pizza</h2>
+          <img src="pizza.png" alt="pizza" width="80" />
+          <h3>R48.99</h3>
+        </div>
+        <button type="button" class="smallPizza" @click="addSmall" x-on:click="smallbought=true;anyBought=true">Buy</button>
+        <div>
+          Small pizza with 3 toppings.1 meat topping. 3 or less other toppings.
+        </div>
+      </div>
+      <div class="pizza Medium" id="pizza-boxes">
+        <div class="icon">
+          <h2>Medium Pizza</h2>
+          <img src="pizza.png" alt="pizza" width="90" />
+          <h3>R78.99</h3>
+        </div>
+        <button type="button" class="mediumPizza" @click="addMedium" x-on:click="mediumbought=true;anyBought=true">Buy</button>
+        <div>
+          Medium margeritha pizza with 3 toppings max.2 or less meat toppings. 3
+          or less other toppings.
+        </div>
+      </div>
+      <div class="pizza Large" id="pizza-boxes">
+        <div class="icon">
+          <h2>Large Pizza</h2>
+          <img src="pizza.png" alt="pizza" width="110" />
+          <h3>158.99</h3>
+        </div>
+        <button type="button" class="largePizza" @click="addLarge" x-on:click="largebought=true;anyBought=true">Buy</button>
+        <div>
+          large margeritha pizza with 3 toppings max. 3 meat toppings max. 3 or
+          less other toppings.
+        </div>
+      </div>
+    </div>
+
+    <div class="pizza Contact">
+      <div class="contacts detailes">
+        <h2>Contact Details</h2>
+        <p>Contact us at:(021)-541-1000 twitter facebook @perfectpizza</p>
+      </div>
+      <div class="contacts address">Pizza plaza, Door road, Base town</div>
+    </div>
+  </div>
+  </body>
+</html>
