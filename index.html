@@ -11,19 +11,19 @@
     <script src="https://unpkg.com/alpinejs" defer></script>
   </head>
   <body x-data="{smallbought:false,mediumbought:false,largebought:false,anyBought:false,MessageAmount:false,anyPay:false,checkoutPay:true}">
-    <div x-data="AddToCart" >
+    <div class="cartContainer" x-data="AddToCart" >
     <h1>Perfect Pizza</h1>
-    <div class="cart" x-show="anyBought"  x-cloak>
-        <h1>Shopping Cart</h1>
-        <div class="options" >
+    <div x-cloak class="cart" x-show="anyBought"  >
+        <h1 x-cloak x-show="anyBought">Shopping Cart</h1>
+        <div x-cloak class="options" x-show="anyBought" >
             <div class="select" id="Small" x-show="smallbought" x-cloak><p>Small <span class="highlight" x-text="smallPizzaQTY"></span></p> <p class="plus-minus"><span class="plus" @click="addSmall">+</span>  <span class="minus"x-on:click="if(parseFloat(addSmallPizza.toFixed(2))===48.99)smallbought=false;if(parseFloat(Total.toFixed(2))===48.99){anyBought=false; checkoutPay=true;anyPay=false}" @click="decreaseSmall">-</span></p> <p>R<span x-text="addSmallPizza.toFixed(2)">48.99</span></p></div>
             <div class="select" id="Medium" x-show="mediumbought" x-cloak><p>Medium <span class="highlight" x-text="mediumPizzaQTY"></span></p> <p class="plus-minus"><span class="plus" @click="addMedium">+</span>  <span class="minus"x-on:click="if(parseFloat(addMediumPizza.toFixed(2))===78.99)mediumbought=false;if(parseFloat(Total.toFixed(2))===78.99){anyBought=false; checkoutPay=true;anyPay=false}" @click="decreaseMedium" >-</span></p> <p>R<span x-text="addMediumPizza.toFixed(2)">78.99</span></p></div>
             <div class="select" id="Large" x-show="largebought" x-cloak><p>Large <span class="highlight" x-text="largePizzaQTY"></span></p> <p class="plus-minus"><span class="plus" @click="addLarge">+</span>  <span class="minus"x-on:click="if(parseFloat(addLargePizza.toFixed(2))===158.99)largebought=false;if(parseFloat(Total.toFixed(2))===158.99){anyBought=false; checkoutPay=true;anyPay=false}" @click="decreaseLarge">-</span></p> <p>R<span x-text="addLargePizza.toFixed(2)">158.99</span></p></div>
             <div class="selectotal"  x-show="anyBought" x-cloak><p>Total Cost</p> <p>R<span x-text="Total.toFixed(2)">0.00</span></p></div>
         </div>
         <h2 class="message" x-text="messageAmount" x-show="MessageAmount" x-cloak></h2>
-        <button type="submit" class="checkout" x-show="checkoutPay"x-cloak  x-on:click="checkoutPay=false;anyPay=true">Checkout</button>
-        <div class="payment" x-show="anyPay" x-cloak><p>Payment Amount</p> <input x-model="amount" type="number" name="" id=""></div>
+        <button x-cloak type="submit" class="checkout" x-show="checkoutPay"  x-on:click="checkoutPay=false;anyPay=true">Checkout</button>
+        <div x-cloak class="payment" x-show="anyPay" ><p x-cloak x-show="anyPay">Payment Amount</p> <input x-cloak x-show="anyPay" x-model="amount" type="number" name="" id=""></div>
         <button x-cloak x-show="anyPay" type="submit" class="pay" x-on:click="MessageAmount=true;setTimeout(function(){
           if(messageAmount==='Enjoy your pizzas')anyBought=false
             MessageAmount=false

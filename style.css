@@ -70,8 +70,6 @@ h1{
         border-radius: 5px;
     }
     .select{
-        /* display: flex;
-        justify-content: space-between; */
         display: grid;
         grid-template-columns: 1fr 1fr 1fr ;
         place-items: center;
@@ -87,8 +85,6 @@ h1{
 
     }
     .plus-minus{
-        /* width:10px; */
-        /* background-color: #2a9d8f; */
         display: flex;
         justify-content: center;
         gap: 20px;
@@ -104,10 +100,8 @@ h1{
         cursor: pointer;
     }
     .checkout{
-        /* width: 150px; */
         padding: 7px 15px;
         margin-bottom: 10px;
-        /* display: none; */
     }
     .pay{
         padding: 7px 15px;
@@ -144,6 +138,14 @@ input{
         position: relative;
         top: -51px;
     }
+    .options{
+        width: 70%;
+    }
+    .plus-minus{
+        display: flex;
+        justify-content: center;
+        gap: 8px;
+    }
 }
 .pizza:hover{
     padding-top: 5px;
@@ -152,4 +154,54 @@ input{
 .highlight{
     color: #2a9d8f;
 
+}
+.cartContainer{
+    display: flex;
+    flex-direction:column ;
+    align-items: center;
+    justify-content: center;
+}
+.cart{
+    display: flex;
+    flex-direction:column ;
+    align-items: center;
+    justify-content: center;
+    width: 95%;
+    background-color: #d62828;
+    border-radius: 5px;
+}
+.select{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr ;
+    place-items: center;
+}
+.selectotal{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    place-items: center;
+
+}
+.plus,
+.minus{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 15px;
+    border-radius: 50%;
+    background-color: #2a9d8f;
+    cursor: pointer;
+}
+.checkout{
+    padding: 7px 15px;
+    margin-bottom: 10px;
+}
+.pay{
+    padding: 7px 15px;
+    margin-bottom: 10px;
+
+}
+.payment{
+    display: flex;
+    align-items: center;
+    gap:5px;
 }
