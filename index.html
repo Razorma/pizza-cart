@@ -22,12 +22,13 @@
             <div class="selectotal"  x-show="anyBought" x-cloak><p>Total Cost</p> <p>R<span x-text="Total.toFixed(2)">0.00</span></p></div>
         </div>
         <h2 class="message" x-text="messageAmount" x-show="MessageAmount" x-cloak></h2>
+        <h5 class="message" x-text="messageChange" x-show="MessageAmount" x-cloak></h5>
         <button x-cloak type="submit" class="checkout" x-show="checkoutPay"  x-on:click="checkoutPay=false;anyPay=true">Checkout</button>
         <div x-cloak class="payment" x-show="anyPay" ><p x-cloak x-show="anyPay">Payment Amount</p> <input x-cloak x-show="anyPay" x-model="amount" type="number" name="" id=""></div>
         <button x-cloak x-show="anyPay" type="submit" class="pay" x-on:click="MessageAmount=true;setTimeout(function(){
           if(messageAmount==='Enjoy your pizzas')anyBought=false
             MessageAmount=false
-          }, 3000);setTimeout(function(){
+          }, 3300);setTimeout(function(){
           if(messageAmount==='Enjoy your pizzas'){
             smallbought=false
             mediumbought=false
@@ -44,7 +45,7 @@
             checkoutPay=true;
             anyPay=false
           }
-          }, 3100)" 
+          }, 3500)" 
           @click="payPizza">Pay
         </button>
     </div>
@@ -76,7 +77,7 @@
         <div class="icon">
           <h2>Large Pizza</h2>
           <img src="pizza.png" alt="pizza" width="110" />
-          <h3>158.99</h3>
+          <h3>R158.99</h3>
         </div>
         <button type="button" class="largePizza" @click="addLarge" x-on:click="largebought=true;anyBought=true">Buy</button>
         <div>

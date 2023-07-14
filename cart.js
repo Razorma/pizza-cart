@@ -3,6 +3,7 @@ function addToCart(){
     
     return{
         messageAmount:"",
+        messageChange:"",
         smallPizzaQTY :0,
         mediumPizzaQTY :0,
         largePizzaQTY :0,
@@ -70,6 +71,7 @@ function addToCart(){
 
             if(this.Total<=this.amount){
                 this.messageAmount="Enjoy your pizzas"
+                this.messageChange = `Your change is R${(this.amount-this.Total).toFixed(2)}`
                 setTimeout(function(){
                     this.messageAmount=""
                     this.smallPizzaQTY=0
